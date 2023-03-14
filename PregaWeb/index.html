@@ -6,18 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PregaWeb</title>
     <link rel="stylesheet" href="style.css">
+    <script src="style.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-QmLjhTnmymRveXd57sU9ol6q3CrzYhPQO8ySx0Jvq3+ttJdO2b4Z4XzmiaKp+km/XzYyyRJ8Wwaf+mLxGDrJw==" crossorigin="anonymous" />
+
 </head>
 <body>
     <header>
-        <a href="#" class="logo">
+        <a href="#" class="title">
             <h1>
-                <span class="prega">Prega</span>
-                <span class="web">Web</span>
+                <span class="prega">PregaWeb</span>
+                
                 
             </h1>
+
         </a>
+        <button class="hamburger">
+            <div class="hamburger-box">
+              <div class="hamburger-inner"></div>
+              </div>
+        </button>
+        
+
+          
+         
+        <div class="menu-options" id="menu">
+            <ul>
+              <li><a href="#">Appointments</a></li>
+              <li><a href="#">Pregnancy Tracker</a></li>
+              <li><a href="#">Due Date Calculator</a></li>
+              <li><a href="#">SignOut</a></li>
+            </ul>
+          </div>
+          <script>
+            var timeoutId;
+            var hamburger = document.querySelector('.hamburger');
+            var menuOptions = document.querySelector('.menu-options');
+ 
+            hamburger.addEventListener('mouseover', function() {
+            clearTimeout(timeoutId);
+            menuOptions.classList.add('active');
+            });
+
+            menuOptions.addEventListener('mouseover', function() {
+            clearTimeout(timeoutId);
+            });
+
+            hamburger.addEventListener('mouseleave', function() {
+            timeoutId = setTimeout(function() {
+            if (!menuOptions.matches(':hover')) {
+              menuOptions.classList.remove('active');
+            }
+            }, 500); // Change this value to adjust the delay time in milliseconds
+            });
+
+            menuOptions.addEventListener('mouseleave', function() {
+            timeoutId = setTimeout(function() {
+            if (!hamburger.matches(':hover')) {
+            menuOptions.classList.remove('active');
+            }
+            }, 500); // Change this value to adjust the delay time in milliseconds
+            });
+        </script>
+          
     </header>
       <nav class="nav">
+        <div class="div_nav">
         <ul>
             <li class="nav-item">
                 <a href="#" class="nav-link">Pre-Natal Care</a>
@@ -38,6 +94,7 @@
             </li>
             
         </ul>
+        </div>
       </nav>
      
 
